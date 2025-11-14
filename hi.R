@@ -1,0 +1,21 @@
+#silly little code
+library(palmerpenguins)
+library(tidyverse)
+
+View(penguins)
+
+penguins |> 
+  filter(species == "Chinstrap") |> 
+  ggplot(aes(x = body_mass_g, y = bill_length_mm)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  labs(x = "Body mass g", y = "Bill length mm", title = "Chinstrap") +
+  theme_bw()
+
+
+penguins |> 
+  filter(species == "Chinstrap") |> 
+  ggplot(aes(x = sex, y = body_mass_g)) +
+  geom_boxplot() +
+  labs(x = "Sex", y = "Body mass g", title = "Chinstrap") +
+  theme_bw()
